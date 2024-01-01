@@ -1,5 +1,5 @@
 {% set name = "insert-license-header" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/insert_license_header-{{ version }}.tar.gz
-  sha256: 5b3202e75ed3bee602e92b9a79642a431a58be1d9f9c79e9af84102d8588e920
+  sha256: fca5781c668f563654cd1477e7cd99162cff013f203dbee0b3591f9c5ed2a450
 
 build:
   entry_points:
