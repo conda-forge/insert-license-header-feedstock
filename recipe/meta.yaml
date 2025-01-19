@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/insert_license_header-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/insert_license_header-{{ version }}.tar.gz
   sha256: 0f269ec6cc50a39813600d2abb0b59f392be455da71f712e999dcae608c06c72
 
 build:
@@ -14,15 +14,15 @@ build:
     - insert-license = insert_license_header.insert_license:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - rapidfuzz
 
 test:
@@ -33,6 +33,7 @@ test:
     - insert-license --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/thomasmarwitz/insert-license-header
